@@ -8,6 +8,11 @@ import 'package:my_calculator/component/themes.dart';
 import 'package:my_calculator/main.dart';
 
 class Localecontroller extends GetxController {
+  void changeLang(String codeLang){
+    Locale locale=Locale(codeLang);
+    sharedPreferences!.setString("lang", codeLang);
+    Get.updateLocale(locale);
+  }
   Rx<TextEditingController> controller = TextEditingController(text: "").obs;
 
   Rx<TextEditingController> controllertotal = TextEditingController(text: "").obs;
@@ -81,6 +86,7 @@ class Localecontroller extends GetxController {
 
     update();
   }
+  
 
   void clearOpration() {
     controller.value.text = "";

@@ -13,9 +13,27 @@ class Home extends StatelessWidget {
   Localecontroller c = Get.put(Localecontroller());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return Directionality(textDirection: TextDirection.ltr, child: Scaffold(
+      appBar:  AppBar(
         actions: [
+          IconButton(
+            onPressed: () {
+              if (Get.locale?.languageCode == "ar") {
+                c.changeLang("en");
+                Get.defaultDialog(
+                  middleText: "The Language has been changed",
+                  title: "Current Language",
+                );
+              } else {
+                c.changeLang("ar");
+                Get.defaultDialog(
+                  middleText: "تم تغيير اللغة",
+                  title: "اللغة الحالية",
+                );
+              }
+            },
+            icon: Icon(Icons.language),
+          ),
           GetBuilder<Localecontroller>(
             builder:
                 (controller) => IconButton(
@@ -30,7 +48,7 @@ class Home extends StatelessWidget {
                 ),
           ),
         ],
-        title: Text("1Appbar".tr),
+        title: Text("ppbar".tr),
       ),
       body: SafeArea(
         child: Padding(
@@ -65,11 +83,13 @@ class Home extends StatelessWidget {
                           child: GetBuilder<Localecontroller>(
                             builder:
                                 (controller) => Text(
-                                  "${controller.controllertotal.value.text} :Total",
+                                  controller.controllertotal.value.text +
+                                      "Total".tr,
                                   style: TextStyle(
                                     fontSize: 36,
                                     fontWeight: FontWeight.w900,
                                   ),
+                                  textDirection: TextDirection.ltr,
                                 ),
                           ),
                         ),
@@ -240,6 +260,6 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )); 
   }
 }

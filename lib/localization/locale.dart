@@ -6,10 +6,12 @@ class MyLocale extends Translations{
   Map<String, Map<String, String>> get keys => 
   {
     "ar": {
-      "1Appbar":"الة حاسبة","Error":"خطأ"
+      "ppbar":"الة حاسبة",
+       "Total":" : الاجمالي"
     },
     "en": {
-      "1Appbar":"Calculator","Error":"Error"
+      "ppbar":"Calculator",
+      "Total":" : Total"
     }
   };
 }
