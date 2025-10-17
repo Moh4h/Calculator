@@ -48,7 +48,10 @@ class Home extends StatelessWidget {
                 ),
           ),
         ],
-        title: Text("ppbar".tr),
+        title: Text("ppbar".tr,style: TextStyle(
+                                    
+                                    fontWeight: FontWeight.w700,
+                                  ),),
       ),
       body: SafeArea(
         child: Padding(
@@ -76,7 +79,7 @@ class Home extends StatelessWidget {
                           ),
                     ),
                     Column(
-                      spacing: 8,
+                      spacing: 16,
                       children: [
                         Container(
                           alignment: Alignment.bottomRight,
@@ -86,8 +89,8 @@ class Home extends StatelessWidget {
                                   controller.controllertotal.value.text +
                                       "Total".tr,
                                   style: TextStyle(
-                                    fontSize: 36,
-                                    fontWeight: FontWeight.w900,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w700,
                                   ),
                                   textDirection: TextDirection.ltr,
                                 ),
